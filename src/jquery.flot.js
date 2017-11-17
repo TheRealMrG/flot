@@ -2594,7 +2594,11 @@ Licensed under the MIT license.
                 }
                 ctx.stroke();
             } else {
-                ctx.fillStyle = m.color || options.grid.markingsColor;
+                ctx.fillStyle = getColorOrGradient(
+                    m.color || options.grid.markingsColor, 
+                    yrange.from - yrange.to, 
+                    0, 
+                    "rgba(255, 255, 255, 0)");
                 if (m.rounded) {
                     roundRect(
                         ctx, xrange.from, yrange.to, xrange.to - xrange.from,
